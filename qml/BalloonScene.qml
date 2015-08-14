@@ -4,7 +4,7 @@ import QtQuick 2.0
 import "entities"
 
 Scene {
-    id: baloonScene
+    id: balloonScene
     property alias popSound: popSound
     property int balloons: 0
     property int balloonsMax: 100
@@ -53,6 +53,23 @@ Scene {
     Wall {
         width: parent.width
         anchors.bottom: parent.top
+    }
+
+    Timer {
+        id: balloonTimer
+        interval: 2000
+        running: true
+        repeat: true
+        onTriggered: {
+            entityManager.createEntityFromUrl(
+                        Qt.resolvedUrl("entities/Balloon.qml"))
+            balloons++
+
+            if (balloons === balloonsMax) {
+                running = false
+                gameRunning = true
+            }
+        }
     }
 }
 

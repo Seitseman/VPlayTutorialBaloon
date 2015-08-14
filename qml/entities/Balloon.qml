@@ -5,7 +5,7 @@ EntityBase {
     entityType: "balloon"
 
     CircleCollider {
-        radius: sprite/2
+        radius: sprite.width/2
         anchors.centerIn: parent
 
         fixture.restitution: 0.5

@@ -1,6 +1,8 @@
 import VPlay 2.0
 import QtQuick 2.0
 
+import "entities"
+
 GameWindow {
     id: gameWindow
 
@@ -9,7 +11,6 @@ GameWindow {
     }
 
     BalloonScene {
-        id: balloonScene
     }
 }
 
