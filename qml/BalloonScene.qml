@@ -5,7 +5,6 @@ import "entities"
 
 Scene {
 
-
     id: balloonScene
     property alias popSound: popSound
     property int balloons: 0
@@ -70,8 +69,48 @@ Scene {
             if (balloons === balloonsMax) {
                 running = false
                 gameRunning = true
+                infoText.text = qsTr("Hurry!")
             }
         }
     }
+
+    Timer {
+        id: gameTimer
+        running: gameRunning
+        repeat: true
+        onTriggered: {
+            time--
+            if (time === 0 || balloons === 0) {
+                gameRunning = false
+                if (balloons === 0) {
+                    infoText.text = qsTr("Perfect, take a cookie!")
+                }
+                else if (balloons < balloonsMax/2) {
+                    infoText.text = qsTr("Well, that was decent...")
+                }
+                else {
+                    infoText.text = qsTr("Not your day. Doh!")
+                }
+            }
+        }
+    }
+
+    //HUD
+    Row {
+        anchors.bottom: parent.bottom
+        z:2
+        Text {
+            id: infoText
+            width: 200
+            height: 40
+            text: qsTr("Loading balloons...")
+        }
+        Text {
+            id: timeText
+            height: 40
+            text: qsTr("Time:") + balloonScene.time
+        }
+    }
+
 }
 
