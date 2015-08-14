@@ -8,8 +8,8 @@ GameWindow {
         console.debug("### Splash screen finished")
     }
 
-    BaloonScene {
-        id: scene
+    BalloonScene {
+        id: balloonScene
     }
 }
 
