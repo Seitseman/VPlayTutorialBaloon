@@ -4,6 +4,8 @@ import QtQuick 2.0
 import "entities"
 
 Scene {
+
+
     id: balloonScene
     property alias popSound: popSound
     property int balloons: 0
@@ -51,7 +53,7 @@ Scene {
 
     // ceiling
     Wall {
-        width: parent.width
+       width: balloonScene.gameWindowAnchorItem.width
         anchors.bottom: parent.top
     }
 
