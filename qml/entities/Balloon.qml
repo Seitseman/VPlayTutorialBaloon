@@ -25,4 +25,15 @@ EntityBase {
         x = utils.generateRandomValueBetween(15, balloonScene.width - 15)
         y = balloonScene.height
     }
+
+    MouseArea {
+        anchors.fill: sprite
+        onPressed: {
+            if (balloonScene.gameRunning) {
+                balloonScene.balloons--
+                balloonScene.popSound.play()
+                removeEntity()
+            }
+        }
+    }
 }

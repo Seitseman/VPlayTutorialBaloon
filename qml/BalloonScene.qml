@@ -30,7 +30,7 @@ Scene {
 
     SoundEffectVPlay {
         id: popSound
-        source: "../assets/snd/balloonPop.mp3"
+        source: "../assets/snd/balloonPop.wav"
     }
 
     BackgroundMusic {
@@ -57,7 +57,7 @@ Scene {
 
     Timer {
         id: balloonTimer
-        interval: 2000
+        interval: 20
         running: true
         repeat: true
         onTriggered: {
