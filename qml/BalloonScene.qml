@@ -1,6 +1,8 @@
 import VPlay 2.0
 import QtQuick 2.0
 
+import "entities"
+
 Scene {
     id: baloonScene
     property alias popSound: popSound
@@ -33,6 +35,24 @@ Scene {
 
     BackgroundMusic {
         source: "../assets/snd/music.mp3"
+    }
+
+    //left wall
+    Wall {
+        height: parent.height + 50
+        anchors.right: parent.left
+    }
+
+    //right wall
+    Wall {
+        height: parent.height + 50
+        anchors.left: parent.right
+    }
+
+    // ceiling
+    Wall {
+        width: parent.width
+        anchors.bottom: parent.top
     }
 }
 
